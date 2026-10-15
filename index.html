@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>红色电波·薪火相传 —— 纪念红军长征胜利90周年电子书</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm; }
+
+  :root{
+    --red:#9b1c1c;
+    --red-light:#c0392b;
+    --gold:#b8912f;
+    --ink:#241f1c;
+    --ink-soft:#4a423d;
+    --paper:#fbf7f0;
+    --line:#e2d8c8;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ background:#e8e2d8; }
+
+  body{
+    margin:0;
+    padding:0 0 40px;
+    background:#e8e2d8;
+    color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB","Source Han Sans SC",sans-serif;
+    font-size:11pt;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .book{
+    width:210mm;
+    margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 4px 30px rgba(0,0,0,.18);
+  }
+
+  /* ============ 封面 ============ */
+  .cover{
+    position:relative;
+    height:297mm;
+    background:
+      radial-gradient(circle at 50% 18%, rgba(255,214,120,.22), transparent 46%),
+      linear-gradient(160deg,#7d1414 0%,#9b1c1c 42%,#6d1010 100%);
+    color:#fff8ec;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:26mm 20mm;
+    page-break-after:always;
+    overflow:hidden;
+  }
+  .cover::before{
+    content:"";
+    position:absolute; inset:12mm;
+    border:1px solid rgba(255,225,160,.42);
+    pointer-events:none;
+  }
+  .cover::after{
+    content:"";
+    position:absolute; inset:14.5mm;
+    border:2.5px solid rgba(255,225,160,.26);
+    pointer-events:none;
+  }
+  .cover-star{
+    font-size:44pt;
+    color:#ffd977;
+    line-height:1;
+    margin-bottom:8mm;
+    text-shadow:0 0 26px rgba(255,205,90,.75);
+  }
+  .cover-kicker{
+    font-size:11.5pt;
+    letter-spacing:.62em;
+    text-indent:.62em;
+    color:#ffdf9c;
+    margin-bottom:9mm;
+  }
+  .cover h1{
+    font-family:"KaiTi","STKaiti","SimSun",serif;
+    font-size:41pt;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-indent:.13em;
+    margin:0;
+    line-height:1.34;
+    text-shadow:0 3px 16px rgba(0,0,0,.34);
+  }
+  .cover-rule{
+    width:64mm; height:2px; margin:11mm auto;
+    background:linear-gradient(90deg,transparent,#ffd977,transparent);
+  }
+  .cover-sub{
+    font-size:14.5pt;
+    letter-spacing:.2em;
+    text-indent:.2em;
+    color:#ffeccb;
+    line-height:2;
+  }
+  .cover-quote{
+    margin-top:auto;
+    font-family:"KaiTi","STKaiti",serif;
+    font-size:12pt;
+    color:#ffe2ae;
+    letter-spacing:.09em;
+    line-height:2;
+  }
+  .cover-quote span{
+    display:block;
+    font-family:"Microsoft YaHei",sans-serif;
+    font-size:9.5pt;
+    letter-spacing:.2em;
+    color:#e5b978;
+    margin-top:2.5mm;
+  }
+  .cover-org{
+    margin-top:8mm;
+    padding-top:6mm;
+    border-top:1px solid rgba(255,225,160,.3);
+    width:110mm;
+    font-size:10.5pt;
+    letter-spacing:.28em;
+    text-indent:.28em;
+    color:#ffdda0;
+    line-height:2;
+  }
+
+  /* ============ 页 ============ */
+  .page{
+    padding:20mm 20mm 18mm;
+    page-break-after:always;
+  }
+  .page:last-child{ page-break-after:auto; }
+
+  h2.chapter{
+    font-family:"KaiTi","STKaiti",serif;
+    font-size:22pt;
+    color:var(--red);
+    text-align:center;
+    margin:0 0 4mm;
+    letter-spacing:.13em;
+    text-indent:.13em;
+    line-height:1.5;
+  }
+  .chapter-no{
+    text-align:center;
+    font-size:10pt;
+    letter-spacing:.5em;
+    text-indent:.5em;
+    color:var(--gold);
+    margin-bottom:3mm;
+  }
+  .chapter-rule{
+    width:36mm; height:2px;
+    margin:0 auto 12mm;
+    background:linear-gradient(90deg,transparent,var(--red),transparent);
+  }
+
+  h3{
+    font-size:13pt;
+    color:var(--red);
+    margin:10mm 0 4mm;
+    padding-left:4.5mm;
+    border-left:4px solid var(--gold);
+    letter-spacing:.04em;
+    line-height:1.6;
+  }
+  h3:first-of-type{ margin-top:0; }
+
+  h4{
+    font-size:11.5pt;
+    color:var(--ink);
+    margin:7mm 0 2.5mm;
+    letter-spacing:.03em;
+  }
+
+  p{ margin:0 0 3.4mm; text-align:justify; text-indent:2em; }
+  p.no-indent{ text-indent:0; }
+
+  strong{ color:var(--red); font-weight:700; }
+
+  /* ============ 特殊块 ============ */
+  .lead{
+    background:#f6efe2;
+    border-left:4px solid var(--gold);
+    padding:5mm 6mm;
+    margin:0 0 8mm;
+    font-size:10.5pt;
+    line-height:2;
+    color:var(--ink-soft);
+    text-indent:0;
+  }
+  .lead p{ text-indent:0; margin-bottom:2.6mm; }
+  .lead p:last-child{ margin-bottom:0; }
+
+  .quotebox{
+    margin:7mm 0;
+    padding:6mm 8mm;
+    background:linear-gradient(135deg,#fdf6e9,#f7ead4);
+    border:1px solid #e8d3ae;
+    border-radius:2px;
+    text-align:center;
+    font-family:"KaiTi","STKaiti",serif;
+    font-size:14pt;
+    color:var(--red);
+    letter-spacing:.1em;
+    line-height:2;
+  }
+  .quotebox small{
+    display:block;
+    font-family:"Microsoft YaHei",sans-serif;
+    font-size:9pt;
+    letter-spacing:.16em;
+    color:#8a7350;
+    margin-top:3mm;
+  }
+
+  .factbox{
+    margin:6mm 0;
+    border:1px solid var(--line);
+    background:#fffdf8;
+  }
+  .factbox .fb-head{
+    background:var(--red);
+    color:#fff6e6;
+    font-size:10.5pt;
+    letter-spacing:.24em;
+    text-indent:.24em;
+    padding:2.4mm 6mm;
+  }
+  .factbox .fb-body{ padding:5mm 6mm; }
+  .factbox ul{ margin:0; padding-left:6mm; }
+  .factbox li{ margin-bottom:2mm; line-height:1.85; }
+
+  blockquote{
+    margin:6mm 0;
+    padding:4mm 6mm 4mm 8mm;
+    border-left:3px solid var(--red-light);
+    background:#faf3ea;
+    color:var(--ink-soft);
+    font-family:"KaiTi","STKaiti",serif;
+    font-size:11.5pt;
+    line-height:2;
+    text-indent:0;
+  }
+  blockquote p{ text-indent:0; }
+
+  /* ============ 表格 ============ */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:5mm 0 7mm;
+    font-size:9.5pt;
+    line-height:1.7;
+  }
+  th{
+    background:var(--red);
+    color:#fff6e6;
+    font-weight:600;
+    letter-spacing:.08em;
+    padding:2.6mm 3mm;
+    text-align:left;
+  }
+  td{
+    padding:2.4mm 3mm;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  tbody tr:nth-child(even){ background:#faf5ec; }
+  .tl-time{ white-space:nowrap; color:var(--red); font-weight:600; width:26mm; }
+
+  /* ============ 卡片 ============ */
+  .card{
+    border:1px solid var(--line);
+    border-top:3px solid var(--red);
+    background:#fffdf8;
+    padding:5.5mm 6.5mm;
+    margin:0 0 6mm;
+    page-break-inside:avoid;
+  }
+  .card-name{
+    font-size:12.5pt;
+    font-weight:700;
+    color:var(--red);
+    letter-spacing:.05em;
+    margin-bottom:1.5mm;
+  }
+  .card-meta{
+    font-size:9pt;
+    color:#8a7350;
+    letter-spacing:.06em;
+    margin-bottom:3.5mm;
+    padding-bottom:3mm;
+    border-bottom:1px dashed var(--line);
+  }
+  .card p{ margin-bottom:2.4mm; }
+  .card p:last-child{ margin-bottom:0; }
+  .card .tag{
+    display:inline-block;
+    font-size:8.5pt;
+    color:#fff;
+    background:var(--gold);
+    padding:.6mm 2.6mm;
+    border-radius:2px;
+    letter-spacing:.1em;
+    margin-left:2mm;
+    vertical-align:2px;
+  }
+
+  /* ============ 目录 ============ */
+  .toc li{
+    list-style:none;
+    display:flex;
+    align-items:baseline;
+    gap:3mm;
+    padding:2.6mm 0;
+    border-bottom:1px dotted var(--line);
+    font-size:11pt;
+  }
+  .toc{ padding:0; margin:0; }
+  .toc .t-no{ color:var(--gold); font-size:9.5pt; letter-spacing:.1em; white-space:nowrap; }
+  .toc .t-name{ flex:1; }
+  .toc .t-sub{ color:#8a7350; font-size:9.5pt; }
+
+  /* ============ 尾页 ============ */
+  .endpage{
+    height:297mm;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:linear-gradient(160deg,#7d1414,#9b1c1c 55%,#6d1010);
+    color:#fff8ec;
+    padding:30mm;
+  }
+  .endpage .big{
+    font-family:"KaiTi","STKaiti",serif;
+    font-size:25pt;
+    letter-spacing:.2em;
+    text-indent:.2em;
+    line-height:2.1;
+    color:#ffe2ae;
+  }
+  .endpage .rule{
+    width:50mm;height:2px;margin:12mm 0;
+    background:linear-gradient(90deg,transparent,#ffd977,transparent);
+  }
+  .endpage .small{
+    font-size:10.5pt;
+    letter-spacing:.3em;
+    text-indent:.3em;
+    color:#e8c58d;
+    line-height:2.4;
+  }
+
+  @media print{
+    html,body{ background:#fff; }
+    .book{ width:auto; box-shadow:none; }
+    .cover,.endpage{ height:auto; min-height:250mm; }
+  }
+</style>
+</head>
+<body>
+<div class="book">
+
+<!-- ==================== 封面 ==================== -->
+<section class="cover">
+  <div class="cover-star">★</div>
+  <div class="cover-kicker">纪念红军长征胜利90周年</div>
+  <h1>红色电波<br>薪火相传</h1>
+  <div class="cover-rule"></div>
+  <div class="cover-sub">长征路上的电子故事<br>与今日中国之芯</div>
+  <div class="cover-quote">
+    你们是科学的千里眼顺风耳
+    <span>——毛泽东</span>
+  </div>
+  <div class="cover-org">
+    XX学院XX党支部 &nbsp;编<br>
+    二〇二六年十月
+  </div>
+</section>
+
+<!-- ==================== 目录 ==================== -->
+<section class="page">
+  <div class="chapter-no">目　录</div>
+  <h2 class="chapter">CONTENTS</h2>
+  <div class="chapter-rule"></div>
+  <ul class="toc">
+    <li><span class="t-no">序言</span><span class="t-name">从一条电波说起</span><span class="t-sub">00</span></li>
+    <li><span class="t-no">章节</span><span class="t-name">长征通信大事记</span><span class="t-sub">00</span></li>
+    <li><span class="t-no">第一章</span><span class="t-name">长征路上的通信兵</span><span class="t-sub">03</span></li>
+    <li><span class="t-no">第二章</span><span class="t-name">隐蔽战线的电波</span><span class="t-sub">09</span></li>
+    <li><span class="t-no">第三章</span><span class="t-name">共和国的电子与通信奠基人</span><span class="t-sub">13</span></li>
+    <li><span class="t-no">第四章</span><span class="t-name">大国工匠与劳动模范</span><span class="t-sub">21</span></li>
+    <li><span class="t-no">第五章</span><span class="t-name">红色血脉　专业传承</span><span class="t-sub">26</span></li>
+    <li><span class="t-no">结语</span><span class="t-name">愿我们把红色基因写进代码里</span><span class="t-sub">30</span></li>
+  </ul>
+
+  <div class="lead" style="margin-top:14mm">
+    <p><strong>阅读说明</strong></p>
+    <p>本书为纪念红军长征胜利90周年主题党日活动成果之一，全部内容取材于公开出版的党史资料、人物传记与主流媒体报道，供支部党员和师生学习交流使用。</p>
+    <p>书中所涉人物事迹，如有引用请以权威出版物为准。</p>
+  </div>
+</section>
+
+<!-- ==================== 序言 ==================== -->
+<section class="page">
+  <div class="chapter-no">序　言</div>
+  <h2 class="chapter">从一条电波说起</h2>
+  <div class="chapter-rule"></div>
+
+  <p>九十年前的那个十月，甘肃会宁的黄土塬上红旗翻卷。翻过六盘山、走出草地的红军将士终于会师，宣告一场举世震惊的战略转移胜利结束。</p>
+
+  <p>人们记住了雪山、草地、泸定桥，却常常忘记另外一些名字：电台、密码本、手摇发电机、通信学校的门板黑板。</p>
+
+  <p>长征路上，红军通信兵在绝境中保住了全军的"耳目"，也在绝境中埋下了中国电子事业的种子。军委三局保证了全军联络畅通，军委二局的破译情报让红军在几十万敌军的围追堵截中"打着灯笼走夜路"，红军通信学校在行军途中坚持办学，被称作"长征路上的流动大学"。</p>
+
+  <p>从这支背着电台的队伍里，走出了新中国电子工业的奠基人，也走出了一条延续至今的学科血脉——今天的电子、通信、芯片与材料专业，许多正诞生于当年的红色电波之中。</p>
+
+  <p>这本电子书以"红色电波"为线索，分五章讲述：长征路上的通信兵、隐蔽战线的电波、共和国的电子与通信奠基人、大国工匠与劳动模范、红色血脉的专业传承。</p>
+
+  <div class="quotebox">
+    今天的代码、电路和芯片，<br>是从当年的电波里来的
+    <small>—— 本书题旨</small>
+  </div>
+</section>
+
+<!-- ==================== 大事记 ==================== -->
+<section class="page">
+  <div class="chapter-no">时 间 轴</div>
+  <h2 class="chapter">长征通信大事记</h2>
+  <div class="chapter-rule"></div>
+
+  <table>
+    <thead>
+      <tr><th class="tl-time">时间</th><th>事件</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="tl-time">1930年12月</td><td>第一次反"围剿"龙冈战役，红军缴获"半部电台"，王诤、刘寅等报务员参加红军</td></tr>
+      <tr><td class="tl-time">1931年1月</td><td>王诤等在宁都小布镇赤坎村架起电台，红军第一部无线电侦察台建立</td></tr>
+      <tr><td class="tl-time">1931年2月</td><td>东韶战斗缴获完整15瓦电台，合成"一部半电台"；红一方面军第一期无线电训练班开办</td></tr>
+      <tr><td class="tl-time">1931年5月</td><td>王诤、刘寅侦听到国民党军第二十八师明码通话，红军据此取得第二次反"围剿"首战胜利</td></tr>
+      <tr><td class="tl-time">1931年11月</td><td>中央军委无线电学校成立，王诤任校长；1933年改称中国工农红军通信学校</td></tr>
+      <tr><td class="tl-time">1934年10月</td><td>中央红军开始长征，通信学校编为通信教导大队，代号"红星第三大队"</td></tr>
+      <tr><td class="tl-time">1935年1—3月</td><td>四渡赤水，军委二局破译情报保障中央决策，被誉为我军"长征路上的灯笼"</td></tr>
+      <tr><td class="tl-time">1935年10月</td><td>中央红军到达陕北吴起镇，与陕北无线电训练班等合并，成立中央军委无线电通信学校</td></tr>
+      <tr><td class="tl-time">1936年10月</td><td>红一、红二、红四方面军会师，长征胜利结束</td></tr>
+      <tr><td class="tl-time">1937年1月</td><td>通信学校随党中央进驻延安，此后在延安办学十五年</td></tr>
+      <tr><td class="tl-time">1955年</td><td>王诤被授予中将军衔；黄昆当选中国科学院学部委员</td></tr>
+      <tr><td class="tl-time">1956年</td><td>黄昆在北京大学创建中国第一个半导体物理专业；电子科技大学（成都）建校</td></tr>
+      <tr><td class="tl-time">1957年</td><td>林兰英回国，拉制出中国第一根锗单晶</td></tr>
+      <tr><td class="tl-time">1958年</td><td>林兰英拉制出中国第一根硅单晶；电影《永不消逝的电波》上映</td></tr>
+      <tr><td class="tl-time">2002年</td><td>黄昆获2001年度国家最高科学技术奖</td></tr>
+    </tbody>
+  </table>
+
+  <div class="factbox">
+    <div class="fb-head">关 键 词</div>
+    <div class="fb-body">
+      <ul>
+        <li><strong>半部电台</strong>——1930年龙冈战役缴获，只能收报不能发报，是红军无线电事业的全部起点。</li>
+        <li><strong>军委三局</strong>——红军通信联络的中枢，长征中随中央行动，由王诤任局长。</li>
+        <li><strong>军委二局</strong>——红军无线电技术侦察部门，长征中由曾希圣任局长。</li>
+        <li><strong>科学的千里眼顺风耳</strong>——毛泽东为通信战士的题词，也是人民军队通信兵的精神标识。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第一章 ==================== -->
+<section class="page">
+  <div class="chapter-no">第 一 章</div>
+  <h2 class="chapter">长征路上的通信兵</h2>
+  <div class="chapter-rule"></div>
+
+  <h3>一、半部电台起家：王诤与红军无线电事业的开端</h3>
+
+  <p>1930年12月30日，江西永丰龙冈。红军在第一次反"围剿"中全歼国民党军第十八师，活捉师长张辉瓒。打扫战场时，战士们发现了一个奇怪的"铁疙瘩"——电台。没人认识它，有人把它当成"会说话的怪物"，砸坏了发报机。等明白过来，红军手里就只剩下了<strong>半部电台</strong>：能收报，不能发报。</p>
+
+  <p>这半部电台，是红军无线电事业的全部家当。</p>
+
+  <p>这一仗俘获的十名无线电技术人员中，除台长外，九名报务、机务人员都自愿留了下来，其中就有报务员吴人鉴。红军参谋处处长郭化若逐一找他们谈心，承诺"国民党给多少薪酬，红军也给多少"。吴人鉴就此改名"王诤"，把一生交给了这支队伍。</p>
+
+  <p>1931年1月，王诤、刘寅等人在宁都小布镇赤坎村的龚氏家庙里修好了那半部电台，把天线挂到窗外，抄收到国民党中央社的新闻电讯。毛泽东、朱德听了很高兴：<strong>"这是没有纸的'报纸'啊！"</strong>——红军第一部无线电侦察台就此建立。</p>
+
+  <p>不久，红军在东韶战斗中又缴获一部完好的15瓦电台，合起来是<strong>"一部半电台"</strong>。红军第一支无线电通信队在赤坎村陈家土楼成立，王诤任队长。毛泽东、朱德随即签发《调学生学无线电的命令》，在赤坎村开办训练班，王诤亲自任教。没有电键，就用木块和铁片做；没有电码训练器，就用废旧铜线缠；学员甚至用大拇指当电键练发报。到1934年，这样的训练班共办了11期，培养出2100余名通信骨干。</p>
+
+  <p>电台第一次在战场上立功，是1931年5月15日黄昏。王诤、刘寅侦听到国民党军第二十八师电台与吉安留守处的明码通话："我们现驻富田，明晨出发。""去哪里？""东固。"而东固正是红军总部驻地。红军据此在白云山九寸岭设伏，16日全歼该师及第四十七师一个旅大部。毛泽东称赞电台是"克敌制胜的一大法宝"，表扬王诤、刘寅立下头功。</p>
+
+  <p>长征开始后，王诤担任中革军委三局局长，负责全军的通信联络。几十万敌军围追堵截，红军各军团分散机动，中央的每一道命令都要靠电台送出去。四渡赤水期间，往来电报昼夜不停，王诤带着三局的同志在行军途中架台、收报、发报，保证了中央与各军团之间、与红二、六军团之间、与红四方面军之间的联络不中断。</p>
+
+  <p>新中国成立后，王诤历任中央军委通信部部长、邮电部党组书记、第四机械工业部部长，成为新中国电子工业的主要奠基人。1955年，他被授予中将军衔。</p>
+
+  <div class="quotebox">
+    你们是科学的千里眼顺风耳
+    <small>—— 毛泽东为通信战士题词</small>
+  </div>
+
+  <p>从"半部电台"到共和国的电子工业，这条路，王诤走了一辈子。</p>
+
+  <h3>二、"打着灯笼走夜路"：军委二局与长征中的无线电技侦</h3>
+
+  <p>如果说三局是红军的"嘴巴和耳朵"，那么二局就是红军的"眼睛"。</p>
+
+  <p>军委二局是红军的无线电技术侦察部门，专门负责侦听和破译国民党军的密码电报。长征中，二局局长是<strong>曾希圣</strong>。在没有任何先进设备的条件下，二局的同志们靠着手工推演、反复比对、日积月累的密码本，一次次把国民党军调动、围堵、追击的部署破译出来，直接送到中央领导同志的桌上。</p>
+
+  <p>长征途中，红军多次在看似无路可走的绝境中做出精准的机动，背后都有二局情报的支撑。毛泽东同志对二局有过很高的评价，意思很明确：<strong>有了二局，红军就像在漆黑的夜里打着灯笼走路。</strong></p>
+
+  <p>红四方面军的无线电技侦工作，则与<strong>宋侃夫、王子纲、蔡威</strong>等人的名字连在一起。其中蔡威同志长期从事电台侦听和密码破译，因积劳成疾，牺牲在长征途中。徐向前同志后来为他题词"无名英雄蔡威"。</p>
+
+  <blockquote>在隐蔽的战场上，他们没有冲锋号，也没有战功榜。他们的勋章，是一串串谁也看不懂的数字。</blockquote>
+
+  <h3>三、背着电台走长征：红军通信学校与通信兵群体</h3>
+
+  <p>1931年1月28日，朱德、毛泽东签发命令，选调学员学习无线电。同年2月，红一方面军第一期无线电训练班开办，这是人民军队通信教育的开端。1931年11月，中央军委无线电学校成立，王诤任校长；1933年3月改称中国工农红军通信学校。这是人民军队通信人才的摇篮。</p>
+
+  <p>1934年10月，中央红军开始长征。通信学校随军行动，编为红军通信团通信教导大队，代号"<strong>红星第三大队</strong>"，一路行军、一路办学，被称为"长征路上的流动大学"。</p>
+
+  <p>没有教室，就用门板当黑板；没有粉笔，就用木炭；没有课桌，就坐在背包上听课。走在前面的学员背包上挂一块小黑板，写上学习内容互相提问，一边背电码一边行军；教员随身带着蜂鸣器，边走边答疑。有学员回忆，最后是在草地中间举行的毕业仪式。</p>
+
+  <p>电台有多重？一台15瓦电台加上手摇发电机，需要几个人轮流背负。过雪山时，有人把电台捆在身上；过草地时，有人把设备顶在头上。很多通信兵倒在了路上，但电台没有丢。</p>
+
+  <p>1935年10月，中央红军到达陕北吴起镇，学校与陕北无线电训练班、红二十五军训练班合并，成立中央军委无线电通信学校；1937年1月随党中央进驻延安，此后在延安办学十五年。长征结束后，这批人成了抗日战争、解放战争中人民军队通信网络的骨干，也成了新中国电子、通信事业的种子。</p>
+
+  <div class="factbox">
+    <div class="fb-head">思 考 题</div>
+    <div class="fb-body">
+      <ul>
+        <li>在半部电台只能收不能发的条件下，红军为什么还要把它当作宝贝？</li>
+        <li>"流动大学"式的办学，对我们今天的专业学习有什么启发？</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第二章 ==================== -->
+<section class="page">
+  <div class="chapter-no">第 二 章</div>
+  <h2 class="chapter">隐蔽战线的电波</h2>
+  <div class="chapter-rule"></div>
+
+  <div class="lead">
+    <p>长征路上的电波是明的，城市里的电波是暗的。在中国共产党的革命史上，有一群人常年在敌人的心脏里发出信号，他们被称为"红色电波"的守护者。</p>
+  </div>
+
+  <h3>一、李强：中共第一部秘密电台的创建者</h3>
+
+  <p>1928年11月，白色恐怖最严重的上海。中共中央急需与各地党组织建立快捷联系，周恩来同志在公共租界三马路惠中旅馆，把建立秘密无线电台的任务交给了他。</p>
+
+  <p>他叫<strong>李强</strong>，原名曾培洪，字幼范，江苏常熟人，时任中央特科第四科（无线电通讯科）科长，负责"机务"。他没有现成的设备，也没有完整的图纸——他混进亚美、大华等无线电公司偷学技术、借样机拆绘草图，又到专营美国RCA器材的苏氏兄弟无线电器材公司买零件和参考书，参照《无线电杂志》上的线路图，自己画图、自己绕线圈、自己调试。</p>
+
+  <p>1929年，中国共产党第一部秘密无线电台在上海建成：一台约50瓦的发报机，一部三灯收报机。张沈川后来回忆说："机器虽然笨重，灵敏度不高……但这毕竟是靠我们自己摸索出来的党的第一台无线电通讯设备。"首次试机时，他们以业余呼号呼叫"CQ CQ CQ"，很快得到其他电台应答——机器可用。这处秘密电台设在沪西福康里的一幢石库门三层楼里，李强管机务，张沈川管报务，两人假扮夫妻"住机关"作掩护。</p>
+
+  <p>同年秋，李强携电台赴香港，实现了上海党中央与中共南方局之间的无线电通报，被称为"一次划时代的通讯革命"。此后，中共中央于1930年3月开办第一期无线电训练班，李强与张沈川任教员，把无线电通信的火种撒向各个根据地。新中国成立后，李强长期从事对外经济贸易工作，曾任外贸部副部长，并当选中国科学院学部委员。</p>
+
+  <h3>二、张沈川：中共第一位报务员</h3>
+
+  <p>与李强一同开创中共秘密电台事业的，是<strong>张沈川</strong>（1900—1991），湖南慈利人，苗族。为了掌握报务技术，他曾冒着风险进入国民党军的无线电训练班学习，晚上在宿舍被窝里练习收报手法，把学到的技术一五一十带回党组织。他是中国共产党第一位报务员，还亲手编制了中共第一本无线电通信密码。</p>
+
+  <p>1930年12月17日，他在讲课时被巡捕破门逮捕，直到1936年8月才经营救出狱。中华人民共和国成立后，他任最高人民检察院检察员、第五届全国政协委员。离休之后，他自费搜集整理《1929—1949我党地下无线电通讯发展概况》，为这段鲜为人知的历史留下了第一手记录。</p>
+
+  <p>在那个年代，会操作电台，就意味着随时可能被捕、被杀。他们的职业风险，和他们发出的信号一样，无声无色。</p>
+
+  <h3>三、李白：永不消逝的电波</h3>
+
+  <p>1937年，抗日战争全面爆发。一位湖南浏阳青年被派往上海，建立党的秘密电台。他叫<strong>李白</strong>（1910—1949），原名李华初，化名李霞、李静安。</p>
+
+  <p>他是走过长征的红军报务员。长征途中，他提出并终生践行一句座右铭：<strong>"电台重于生命"</strong>。</p>
+
+  <p>在上海，他白天修收音机，夜里架起电台，把一份份情报发往延安，"用无线电波架起了上海和延安之间的'空中桥梁'"。他的电台先后设于贝勒路、福禄村，1947年上半年迁至虹口区黄渡路107弄15号——那里如今是李白烈士故居纪念馆。为了不被敌人侦测，他把发报功率压到最低，把天线藏进地板和墙壁，选择敌人监听最松懈的深夜时段工作。1939年，党组织安排纺织女工出身的共产党员<strong>裘慧英</strong>与他假扮夫妻掩护工作，后经组织批准结为夫妻。</p>
+
+  <p>他先后三次被捕。1942年中秋前夕被日本宪兵逮捕，受尽酷刑仍坚称是私人电台，靠着涂作潮传授的改装技术，几秒钟内就能把收发报机还原成一台"收音机"，1943年5月经营救获释。1948年12月30日凌晨，他在向西柏坡发送国民党长江布防情报时，被国民党特务测出电台位置而逮捕。在三十多个小时里，他遭受了三十多种酷刑，始终坚贞不屈。</p>
+
+  <p>1949年5月7日，李白被秘密杀害于上海浦东戚家庙，年仅39岁。同批牺牲的还有另外11位烈士。此时距上海解放只有二十天。</p>
+
+  <p class="no-indent" style="text-align:center;letter-spacing:.2em;color:var(--red);font-weight:700">二十天后，上海解放。</p>
+
+  <p>牺牲前，他通过出狱难友传信，与妻子裘慧英隔窗见了最后一面，留下的话是：<strong>"天快亮了，我无论生死，总是觉得愉快和欣慰的。"</strong></p>
+
+  <p>1958年，八一电影制片厂把他的故事拍成电影《永不消逝的电波》，主人公李侠的原型就是他。2009年，李白被评为"100位为新中国成立作出突出贡献的英雄模范人物"。</p>
+
+  <div class="quotebox">
+    同志们，永别了，我想念你们！
+    <small>—— 电影《永不消逝的电波》经典台词</small>
+  </div>
+
+  <p>这句台词不是编剧的想象，而是电波那头真实的告别。</p>
+
+  <div class="factbox">
+    <div class="fb-head">拓 展 学 习</div>
+    <div class="fb-body">
+      <ul>
+        <li>电影《永不消逝的电波》（1958年，八一电影制片厂）</li>
+        <li>电视剧《绝密使命》（2021年）——讲述中央红色交通线上的隐秘斗争</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第三章 ==================== -->
+<section class="page">
+  <div class="chapter-no">第 三 章</div>
+  <h2 class="chapter">共和国的电子与通信奠基人</h2>
+  <div class="chapter-rule"></div>
+
+  <div class="lead">
+    <p>从当年的电波里，走出了新中国电子、通信、芯片与材料事业的第一批奠基人。他们中的许多人，本可以在国外过安稳日子，却选择回到一穷二白的祖国，从零开始。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">黄昆<span class="tag">固体物理·半导体</span></div>
+    <div class="card-meta">1919—2005　浙江嘉兴　中国科学院院士　国家最高科学技术奖获得者</div>
+    <p>中国固体物理学和半导体物理学的奠基人之一。他在英国留学期间与物理学家玻恩合作完成《晶格动力学理论》，这本书至今仍是固体物理领域的经典。</p>
+    <p>1951年，他放弃国外的优厚条件回国；1956年在北京大学创建了中国第一个半导体物理专业，培养出中国第一批半导体人才。</p>
+    <p>1955年当选中国科学院学部委员，2002年获2001年度国家最高科学技术奖。</p>
+    <p><strong>没有黄昆，中国的芯片产业可能要晚起步很多年。</strong></p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">林兰英<span class="tag">半导体材料</span></div>
+    <div class="card-meta">1918—2003　福建莆田　中国科学院院士　"中国半导体材料之母"</div>
+    <p>在中国，她的名字和一连串"第一"连在一起：第一根锗单晶、第一根硅单晶、第一根无位错硅单晶、第一台高压单晶炉、第一根磷化镓单晶。她被尊称为<strong>"中国半导体材料之母"</strong>。</p>
+    <p>1957年她从美国回国时，积蓄被美方扣押，随身只带回了500克锗单晶和100克硅单晶——她把这两样当时价值二十多万元的材料，无偿捐给了中国科学院。回国半年后，她拉制出<strong>中国第一根锗单晶</strong>；1958年，又拉制出<strong>中国第一根硅单晶</strong>，中国由此成为世界上第三个能生产硅单晶的国家。</p>
+    <p>当年我国"十二年科学技术发展远景规划"把硅单晶研究排在了十年之后，外国专家也预测中国要到20世纪60年代才能着手单晶材料研制，实际进度被大幅提前。西方禁运氩气，她就改在高真空下拉制；没有现成设备，她就自己设计"开门式"硅单晶炉，1962年初拉出我国第一根无位错硅单晶。这台炉子后来生产了900多台，还被日本点名邀请参加东京国际工业博览会。</p>
+    <p><strong>芯片之争，首先是材料之争。林兰英种下的，是中国芯片产业的第一棵树。</strong></p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">谢希德<span class="tag">半导体物理·教育</span></div>
+    <div class="card-meta">1921—2000　福建泉州　中国科学院院士　复旦大学原校长</div>
+    <p>半导体物理学家、教育家，中国半导体物理学的开拓者之一。她与黄昆等人一同开创了中国的半导体物理教学与研究，编写了我国最早的半导体物理教材之一。</p>
+    <p>1983年，她出任复旦大学校长，成为<strong>新中国第一位大学女校长</strong>。她一生推动中国高等教育与国际接轨，为改革开放初期的人才培养作出了重要贡献。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">王阳元<span class="tag">集成电路</span></div>
+    <div class="card-meta">1935年生　中国科学院院士　北京大学微电子学研究院教授</div>
+    <p>中国集成电路事业的开拓者之一。他长期从事集成电路设计、工艺和器件研究，为推动中国微电子学科的建立和发展作出了重要贡献。</p>
+    <p>在他和同行的推动下，微电子学成为国家重点发展的学科方向，中国集成电路的人才培养体系由此建立。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">赵梓森<span class="tag">光纤通信</span></div>
+    <div class="card-meta">1932—2022　中国工程院院士　"中国光纤之父"</div>
+    <p>1972年底，赵梓森从外文期刊上看到美国正在研究光纤通信，随即把方向转了过来。当时国内条件极其简陋——实验室是单位厕所旁一间清洗室搭起来的，用的是旧机床和电炉。</p>
+    <p>1976年3月，他带领团队拉出了中国第一根实用型石英光纤；1979年，中国第一根具有实用价值的低损耗光纤面世；1982年12月31日，我国第一条光缆通信工程"八二工程"全线开通并进入武汉市话网。</p>
+    <p>今天，中国的光通信网络规模和光纤产量居世界前列。<strong>这一切的起点，是一间简陋的实验室和一根细细的玻璃丝。</strong></p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">刘永坦<span class="tag">雷达</span></div>
+    <div class="card-meta">1936年生　哈尔滨工业大学教授　中国科学院、中国工程院院士</div>
+    <p>他四十余年扎根雷达研究，带领团队研制出我国第一部新体制对海探测雷达，解决了长期困扰我国海防的远距离探测难题，为我国海防安全筑起了一道"科技长城"。</p>
+    <p>2019年，他获得2018年度国家最高科学技术奖。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">王小谟<span class="tag">预警机</span></div>
+    <div class="card-meta">1938—2023　中国工程院院士　"中国预警机之父"</div>
+    <p>他主持研制了我国第一代机载预警雷达，并推动我国预警机事业从无到有、从有到强。预警机是现代空战的"空中指挥所"，被称为"空中帅府"。没有它，就没有制空权。</p>
+    <p>2013年，他获得2012年度国家最高科学技术奖。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">马伟明<span class="tag">电力电子·舰船</span></div>
+    <div class="card-meta">1960年生　海军工程大学教授　中国工程院院士　"八一勋章"获得者</div>
+    <p>他长期从事舰船电力与电磁技术研究，带领团队在舰船综合电力系统、电磁发射技术等方向取得了具有世界影响的成果，为我国海军装备的跨越式发展提供了关键技术支撑。</p>
+    <p>2017年，他获得"八一勋章"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">黄令仪<span class="tag">集成电路·龙芯</span></div>
+    <div class="card-meta">1936—2023　广西桂林　"龙芯"研发团队核心成员</div>
+    <p>中国半导体事业的开拓者之一。从早期的半导体器件研制，到后来的"龙芯"系列处理器，她在集成电路这条路上走了半个多世纪。八十多岁高龄时，她仍然活跃在研发一线。</p>
+    <div class="quotebox" style="margin:4mm 0 3mm;font-size:12pt">
+      我这辈子最大的心愿，<br>就是匍匐在地，擦干祖国身上的耻辱。
+      <small>—— 黄令仪</small>
+    </div>
+    <p>有人叫她"中国龙芯之母"。她说得很朴素：就是想让我们自己的机器，用上我们自己的芯片。</p>
+  </div>
+</section>
+
+<!-- ==================== 第四章 ==================== -->
+<section class="page">
+  <div class="chapter-no">第 四 章</div>
+  <h2 class="chapter">大国工匠与劳动模范</h2>
+  <div class="chapter-rule"></div>
+
+  <div class="lead">
+    <p>芯片要设计出来，设备要制造出来，火箭要焊起来，高铁要装配起来。所有这些"起来"，都落在具体的人手上——他们是大国工匠，是劳动模范，是把一件事做到极致的人。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">高凤林<span class="tag">航天焊接</span></div>
+    <div class="card-meta">中国航天科技集团第一研究院211厂　特种熔融焊接工、高级技师　"大国工匠"</div>
+    <p>火箭发动机的喷管壁薄如纸，焊接时温度极高、精度极严，任何一点瑕疵都可能导致发射失败。高凤林在这个岗位上干了四十多年，焊接过的火箭发动机支撑了长征系列运载火箭的一次次发射。</p>
+    <p><strong>"人的能力有大小，但只要把国家和事业放在心里，就能在自己的岗位上做到极致。"</strong></p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">顾秋亮<span class="tag">深海装配</span></div>
+    <div class="card-meta">中国船舶重工集团第七〇二研究所　高级技师　"顾两丝"</div>
+    <p>"蛟龙号"载人潜水器要在几千米深的海底承受巨大压力，任何一个密封面出问题，后果都是灾难性的。顾秋亮负责潜水器关键部件的装配，他能在没有仪器辅助的情况下，把装配精度控制在0.02毫米——相当于"两丝"（一丝为0.01毫米）。工友们叫他"顾两丝"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">李万君<span class="tag">高铁焊接</span></div>
+    <div class="card-meta">中车长春轨道客车股份有限公司　高级技师　全国劳动模范</div>
+    <p>转向架是高铁的"腿"，焊接质量直接关系行车安全。他攻克了高铁转向架焊接的多项难题，带出的徒弟成为生产线上的骨干。他被称为"工人院士"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">宁允展<span class="tag">高铁研磨</span></div>
+    <div class="card-meta">中车青岛四方机车车辆股份有限公司　高级技师</div>
+    <p>他负责高铁转向架关键部位的研磨，手工打磨的精度可以达到<strong>0.05毫米</strong>。这个精度，用机器都很难稳定实现。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">王树军<span class="tag">数控机床</span></div>
+    <div class="card-meta">潍柴动力股份有限公司　首席技师　"大国工匠年度人物"</div>
+    <p>他是国内知名的数控机床维修专家，多次攻克进口设备的关键技术难题，把别人认定"修不了、只能换"的设备重新救活，为企业节约了大量成本。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">潘从明<span class="tag">贵金属冶炼</span></div>
+    <div class="card-meta">金川集团铜业有限公司　贵金属冶炼高级技师</div>
+    <p>铂、钯、铑等贵金属提取工艺复杂、纯度要求极高。他通过反复试验，摸索出一套高效提纯方法，把矿石中的贵金属"吃干榨净"。</p>
+  </div>
+
+  <div class="card">
+    <div class="card-name">管延安<span class="tag">深海钳工</span></div>
+    <div class="card-meta">港珠澳大桥岛隧工程　钳工　"大国工匠"</div>
+    <p>沉管隧道要在几十米深的海底对接，精度要求以毫米计。他和工友们一次次下到海底操作，为这条"海底巨龙"打下了坚实基础。</p>
+  </div>
+
+  <div class="factbox">
+    <div class="fb-head">一 句 话 心 得</div>
+    <div class="fb-body">
+      <p style="text-indent:0;margin:0">读完他们的故事，请用一句话写下：<strong>我所在的专业，能在一个什么岗位上做到极致？</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 第五章 ==================== -->
+<section class="page">
+  <div class="chapter-no">第 五 章</div>
+  <h2 class="chapter">红色血脉　专业传承</h2>
+  <div class="chapter-rule"></div>
+
+  <h3>一、从瑞金的无线电学校，到今天的信息学科</h3>
+
+  <p>1931年，中央军委无线电学校在江西瑞金成立。它随中央红军长征，在陕北继续办学，此后历经抗日战争、解放战争，几经更名、几度搬迁，发展成为今天的<strong>西安电子科技大学</strong>。</p>
+
+  <p>一条从瑞金出发、走过两万五千里的办学之路，走到了今天的实验室和课堂。</p>
+
+  <p>此外，一批高校同样有着深厚的红色渊源或鲜明的电子信息特色：</p>
+
+  <table>
+    <thead><tr><th style="width:38mm">学校</th><th>渊源与特色</th></tr></thead>
+    <tbody>
+      <tr><td>西安电子科技大学</td><td>前身可追溯至1931年中央军委无线电学校，随红军长征，被称为"长征路上的流动大学"</td></tr>
+      <tr><td>电子科技大学（成都）</td><td>1956年建校，由交通大学、华南工学院、南京工学院的电讯系合并组建，新中国第一所电子类高校</td></tr>
+      <tr><td>北京邮电大学</td><td>1955年建校，国家为发展邮电通信事业重点建设的高校</td></tr>
+      <tr><td>南京邮电大学</td><td>前身可追溯至1942年山东抗日根据地的战时邮务干部训练班</td></tr>
+      <tr><td>西安邮电大学</td><td>西北地区邮电通信人才培养重要基地，1959年建校</td></tr>
+      <tr><td>杭州电子科技大学</td><td>1956年建校，电子信息与财经管理交叉特色鲜明</td></tr>
+      <tr><td>桂林电子科技大学</td><td>1960年建校，电子信息学科在华南地区具有重要影响</td></tr>
+    </tbody>
+  </table>
+
+  <h3>二、从"半部电台"到"中国芯"</h3>
+
+  <p>八十多年前，红军只有半部电台，靠人背肩扛，靠反复试错；</p>
+
+  <p>今天，中国的5G基站数量、光纤网络规模、特高压输电、新能源与显示面板产业位居世界前列，集成电路产业正在爬坡过坎。</p>
+
+  <p>变的是技术，不变的是那股劲：</p>
+
+  <div class="factbox">
+    <div class="fb-head">三 种 劲</div>
+    <div class="fb-body">
+      <ul>
+        <li><strong>自力更生</strong>——当年没有零件就自己绕线圈，今天没有光刻机就自己攻关；</li>
+        <li><strong>一丝不苟</strong>——当年译电错一个码就可能全军覆没，今天焊接差一丝就可能箭毁人亡；</li>
+        <li><strong>接续奋斗</strong>——从王诤到黄令仪，每一代人都在为下一代人铺路。</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>三、专业地图：我们的学科从哪里来</h3>
+
+  <table>
+    <thead><tr><th style="width:32mm">专业方向</th><th>红色源流</th><th>今日使命</th></tr></thead>
+    <tbody>
+      <tr><td>电子/通信</td><td>红军无线电队、军委三局、通信学校</td><td>6G、卫星互联网、星地一体化通信</td></tr>
+      <tr><td>集成电路/芯片</td><td>黄昆创建半导体物理专业、林兰英拉制中国第一根硅单晶</td><td>先进制程、EDA工具、自主可控</td></tr>
+      <tr><td>材料</td><td>林兰英半导体材料研究、贵金属提纯工艺</td><td>第三代半导体、宽禁带材料、封装材料</td></tr>
+      <tr><td>光电/光通信</td><td>赵梓森与第一根实用化光纤</td><td>高速光模块、光互连、硅光芯片</td></tr>
+      <tr><td>雷达/探测</td><td>刘永坦新体制雷达、王小谟预警机</td><td>智能感知、低空探测、无人系统</td></tr>
+      <tr><td>电力电子</td><td>马伟明舰船综合电力与电磁发射</td><td>新能源并网、储能、电机驱动</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quotebox">
+    把论文写在祖国大地上<br>把代码写在祖国的芯片里
+    <small>—— 与支部全体同志共勉</small>
+  </div>
+</section>
+
+<!-- ==================== 结语 ==================== -->
+<section class="page">
+  <div class="chapter-no">结　语</div>
+  <h2 class="chapter">愿我们把红色基因写进代码里</h2>
+  <div class="chapter-rule"></div>
+
+  <p>九十年前，红军走完了二万五千里。他们没有看到今天的世界，但今天的世界，正是从他们脚下的那条路延伸出来的。</p>
+
+  <p>作为一名电子、通信、芯片或材料专业的师生党员，我们和那段历史之间，其实只有一条电波的距离。</p>
+
+  <p>王诤守着一台只能收报的机器，守出了一支军队的耳目；林兰英带回一瓶材料，拉出了中国第一根硅单晶；黄令仪八十多岁仍然坐在设计台前，只想让我们自己的机器用上我们自己的芯片。</p>
+
+  <p>他们做的事，和我们要做的事，是同一件事。</p>
+
+  <div class="quotebox" style="font-size:15pt;line-height:2.2">
+    愿我们把红色基因<br>写进代码里、刻进电路板上、熔进材料里
+  </div>
+
+  <p class="no-indent" style="text-align:center;letter-spacing:.35em;color:var(--red);font-weight:700;font-size:13pt;margin-top:12mm">致敬长征　致敬每一位无名英雄</p>
+</section>
+
+<!-- ==================== 尾页 ==================== -->
+<section class="endpage">
+  <div class="big">
+    讲述红色电子故事<br>赓续红色基因
+  </div>
+  <div class="rule"></div>
+  <div class="small">
+    纪念红军长征胜利90周年主题党日活动<br>
+    XX学院XX党支部<br>
+    二〇二六年十月
+  </div>
+</section>
+
+</div>
+</body>
+</html>
